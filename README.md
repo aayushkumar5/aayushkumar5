@@ -22,7 +22,7 @@ Currently strengthening my fundamentals in:
 ## 🛠 Tech Stack
 
 **Languages:** Python • Java • MySQL • C • C++  
-**Machine Learning:** Scikit-Learn • TensorFlow • Pandas • NumPy • Matplotlib • Seabron • NumPy  
+**Machine Learning:** Scikit-Learn • TensorFlow • Pandas • NumPy • Matplotlib • Seabron   
 **Web Development:** HTML • CSS • JavaScript • FastAPI • Streamlit  
 **Tools:** Git • GitHub • VS Code • Jupyter Notebook  
 
