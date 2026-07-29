@@ -1,22 +1,36 @@
 name: Update Recent Activity
 
 on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - README.md
   schedule:
     - cron: "*/30 * * * *"   # runs every 30 minutes
   workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-recent-activity
+  cancel-in-progress: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
     name: Update README with recent activity
-    permissions:
-      contents: write
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: jamesgeorge007/github-activity-readme@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
+          GH_USERNAME: aayushkumar5
           COMMIT_MSG: "chore: update recent activity"
+          EMPTY_COMMIT_MSG: "chore: keep recent activity workflow alive"
           MAX_LINES: 5
           COMMIT_NAME: GitHub Activity Bot
