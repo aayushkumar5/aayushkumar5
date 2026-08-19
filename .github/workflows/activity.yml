@@ -33,6 +33,8 @@ jobs:
             -H "Accept: application/vnd.github+json" \
             "/users/aayushkumar5/events/public?per_page=5" > recent-events.json
 
+          jq -e 'type == "array"' recent-events.json > /dev/null
+
           jq -r '
             .[] |
             if .type == "PushEvent" then
